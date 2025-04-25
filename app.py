@@ -1,5 +1,7 @@
 import flet as ft
 
+from src.configs.page_configs import PageConfigs
+
 class MyApplication:
     def __init__(self) -> None:
         self.__page: ft.Page = None
@@ -8,7 +10,7 @@ class MyApplication:
 
     def main(self, page: ft.Page) -> None:
         self.__page = page
-        self.__register_configs()
+        self.__register_configs(PageConfigs)
         self.__register_theme()
 
         page.add()
