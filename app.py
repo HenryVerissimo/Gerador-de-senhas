@@ -1,17 +1,17 @@
 import flet as ft
 
-from src.configs.page_configs import PageConfigs
+from src.configs import PageConfigs, DarkThemeConfigs
 
 class MyApplication:
     def __init__(self) -> None:
         self.__page: ft.Page = None
-        self.__actual_view: ft.Control = None
+        self.__colors: dict = None        
         self.__dict_views: dict = None
+        self.__actual_view: ft.Control = None
 
     def main(self, page: ft.Page) -> None:
         self.__page = page
-        self.__register_configs(PageConfigs)
-        self.__register_theme()
+        self.__register_configs()
 
         page.add()
         page.update()
@@ -19,12 +19,15 @@ class MyApplication:
     def run_application(self) -> None:
         ft.app(self.main)
 
-    def __register_configs(self, configs) -> None:
+    def __register_configs(self, configs=PageConfigs, theme=DarkThemeConfigs) -> None:
         configs(self.__page).build()
+        self.__theme_colors = theme(self.__page).build()
 
-    def __register_theme(self) -> None:
-        self.__page.theme_mode=ft.ThemeMode.DARK
-        self.__page.bgcolor="#171716"
+    def __register_views(self) -> None:
+        self.__dict_views = {
+            {}
+        }
+
 
 if __name__ == "__main__":
 
