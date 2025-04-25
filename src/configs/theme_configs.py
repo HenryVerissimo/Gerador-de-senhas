@@ -8,9 +8,8 @@ class DarkThemeConfigs:
         self.__page.theme_mode=ThemeMode.DARK
         self.__page.bgcolor="#171716"
         return {
+            "color0": Colors.BLACK,
             "color1": Colors.WHITE,
-            "colors2": Colors.AMBER,
-            "colors3": Colors.BLUE,
-            "colors4": Colors.RED,
-            "colors5": Colors.GREEN
+            "color2": Colors.AMBER,
+            "color3": Colors.BLUE,
         }
