@@ -11,7 +11,7 @@ database = getenv("DATABASE")
 
 class ConnectionHandler:
     def __init__(self) -> None:
-        self.__connection_string = f"mongodb://{user}:{password}@{host}:{port}"
+        self.__connection_string = f"mongodb://127.0.0.1:27017/" #mongodb://{user}:{password}@{host}:{port}
         self.__client = None
         self.connection = None
 
@@ -22,6 +22,9 @@ class ConnectionHandler:
     def close_connection(self) -> None:
         self.__client.close()
         self.connection = None
+
+    def commit(self) -> None:
+        self.__client
 
     def __enter__(self) -> None:
         self.create_connection()
