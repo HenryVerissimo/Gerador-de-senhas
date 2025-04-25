@@ -1,0 +1,3 @@
+# 🔒Gerador de senhas
+## 👨🏻‍💻Aplicação desktop criada com Python, Flet e MongoDB.
+### **🏗️Status do projeto**: Em andamento...
