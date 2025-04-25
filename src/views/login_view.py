@@ -5,8 +5,8 @@ class LoginView:
         self.__page = page
         self.logo_image = ft.Image(src="assets/images/cadeado.png", width=150, height=150)
         self.text1 = ft.Text(value="GERADOR DE ", color=["color1"], font_family="PassionOne-Bold", size=30)
-        self.text2 = ft.Text(value="SENHAS", color=colors["color2"], font_family="PassionOne-Bold", size=30)
-        self.enter_button = ft.Button(text="ENTAR", width=150, style=ft.ButtonStyle(color=colors["color2"]))
+        self.text2 = ft.Text(value="SENHAS", color=colors["color3"], font_family="PassionOne-Bold", size=30)
+        self.enter_button = ft.Button(text="ENTAR", width=150, style=ft.ButtonStyle(color=colors["color3"]))
 
     def build(self) -> None:
         return ft.Container(

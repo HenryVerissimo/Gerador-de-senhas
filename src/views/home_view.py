@@ -8,7 +8,7 @@ class HomeView:
         self.logo_image = ft.Image(src="assets/images/cadeado.png", width=50, height=50)
         self.menu_icon = ft.IconButton(icon=ft.Icons.MENU, icon_size=40, icon_color=colors["color0"])
         self.reload_icon = ft.IconButton(icon=ft.Icons.REFRESH, icon_color=colors["color1"])
-        self.box_text = ft.TextField(value="")
+        self.box_text = ft.TextField(value="", border_color=colors["color1"])
         self.copy_icon = ft.IconButton(icon=ft.Icons.COPY, icon_color=colors["color1"])
         self.save_button = ft.Button(text="SALVAR", width=150, color=colors["color0"], bgcolor=colors["color3"])
         self.credits_text = ft.Text(value="© Henrique Verissimo")
