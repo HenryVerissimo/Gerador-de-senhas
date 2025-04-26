@@ -2,7 +2,7 @@ import flet as ft
 
 from src.configs import PageConfigs, DarkThemeConfigs
 from src.views import LoginView, HomeView
-from utils import go_to_home, go_to_login, save_password
+from utils import go_to_home, go_to_login, save_password, reload_password
 
 class MyApplication:
     def __init__(self) -> None:
@@ -10,6 +10,12 @@ class MyApplication:
         self._colors: dict = None        
         self._dict_views: dict = None
         self._actual_view: ft.Control = None
+        self._characters = {
+            "numbers": True,
+            "upper": True,
+            "lower": False,
+            "special": False
+        }        
 
     def main(self, page: ft.Page) -> None:
         self.__page = page
@@ -32,6 +38,7 @@ class MyApplication:
         self._dict_views["login"].enter_button.on_click=lambda e:go_to_home(e, self.__page, self._dict_views["home"])
         self._dict_views["home"].return_icon.on_click=lambda e:go_to_login(e, self.__page, self._dict_views["login"])
         self._dict_views["home"].save_button.on_click=lambda e: save_password(e, self.__page, self._colors, self._dict_views["home"])
+        self._dict_views["home"].reload_icon.on_click=lambda e: reload_password(e, self.__page, self._characters, self._dict_views["home"])
 
     def __set_dict_views(self) -> None:
         self._dict_views = {
