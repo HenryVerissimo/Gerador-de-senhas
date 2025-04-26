@@ -13,4 +13,15 @@ class PasswordsRepository:
                 cursor = db.connection[collection]
                 cursor.insert_one(document)
                 return True
+            
+    def select_one(self, password:str) -> bool:
+        with ConnectionHandler() as db:
+            document = {"password": password}
+            cursor = db.connection[collection]
+            response = cursor.find_one(document)
 
+            if not response:
+                return None
+            
+            else: 
+                return response

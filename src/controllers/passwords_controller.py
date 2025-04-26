@@ -2,9 +2,13 @@ import string
 from src.models.repositories.passwords_repository import PasswordsRepository
 
 class PasswordsController:
+    def __init__(self) -> None:
+        self.__repository = PasswordsRepository()
 
-    @staticmethod
-    def insert_db(password: str) -> None:
+    def insert_db(self, password: str) -> None:
+
+        if self.__repository.select_one(password):
+            return False
 
         numbers = upper = lower = specials = False
 
@@ -18,6 +22,5 @@ class PasswordsController:
             if caracter in string.punctuation:
                 specials = True
 
-        repository = PasswordsRepository()
-
-        repository.insert_one(password, numbers, upper, lower, specials)
+        self.__repository.insert_one(password, numbers, upper, lower, specials)
+        return True
