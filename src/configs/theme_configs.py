@@ -12,4 +12,5 @@ class DarkThemeConfigs:
             "color1": Colors.WHITE,
             "color2": Colors.AMBER,
             "color3": Colors.BLUE,
+            "color4": Colors.GREEN
         }

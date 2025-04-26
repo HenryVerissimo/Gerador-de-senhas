@@ -10,6 +10,7 @@ class HomeView:
         self.reload_icon = ft.IconButton(icon=ft.Icons.REFRESH, icon_color=colors["color1"])
         self.box_text = ft.TextField(value="", border_color=colors["color1"])
         self.copy_icon = ft.IconButton(icon=ft.Icons.COPY, icon_color=colors["color1"])
+        self.text_info = ft.Text(value="", visible=False, size=20, color=colors["color1"], text_align= ft.TextAlign.CENTER)
         self.save_button = ft.Button(text="SALVAR", width=150, color=colors["color0"], bgcolor=colors["color3"])
         self.credits_text = ft.Text(value="© Henrique Verissimo")
 
@@ -49,6 +50,15 @@ class HomeView:
                                     alignment=ft.MainAxisAlignment.CENTER,
                                     controls=[
                                         self.save_button
+                                    ]
+                                )        
+                            ),
+                            ft.Container(
+                                padding=ft.Padding(left=10, right=10, top=0, bottom=10),
+                                content=ft.Row(
+                                    alignment=ft.MainAxisAlignment.CENTER,
+                                    controls=[
+                                        self.text_info
                                     ]
                                 )        
                             ),
