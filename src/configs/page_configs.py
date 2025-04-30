@@ -6,8 +6,9 @@ class PageConfigs:
 
     def build(self) -> None:
         self.__page.padding = 0
+        self.__page.window.maximizable = False
         self.__page.title = "Gerador de senhas"
-        self.__page.window.width = 700 #1280
+        self.__page.window.width = 900 #1280
         self.__page.window.height = 700 #720
         self.__page.window.min_width = 500
         self.__page.window.min_height = 500

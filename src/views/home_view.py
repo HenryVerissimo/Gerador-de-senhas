@@ -10,7 +10,7 @@ class HomeView:
         self.box_text = ft.TextField(value="", border_color=colors["color1"], disabled=True)
         self.copy_icon = ft.IconButton(icon=ft.Icons.COPY, icon_color=colors["color1"])
         self.text_info = ft.Text(value="", visible=False, size=20, color=colors["color1"], text_align= ft.TextAlign.CENTER)
-        self.save_button = ft.Button(text="SALVAR", width=150, color=colors["color0"], bgcolor=colors["color3"])
+        self.save_button = ft.Button(text="SALVAR", width=150, color=colors["color1"], bgcolor=colors["color3"])
         self.credits_text = ft.Text(value="© Henrique Verissimo")
 
     def build(self) -> None:
@@ -43,7 +43,7 @@ class HomeView:
                                 )        
                             ),
                             ft.Container(
-                                padding=ft.Padding(left=10, right=10, top=0, bottom=10),
+                                padding=ft.Padding(left=10, right=10, top=0, bottom=0),
                                 content=ft.Row(
                                     alignment=ft.MainAxisAlignment.CENTER,
                                     controls=[
@@ -52,7 +52,7 @@ class HomeView:
                                 )        
                             ),
                             ft.Container(
-                                padding=ft.Padding(left=10, right=10, top=10, bottom=10),
+                                padding=ft.Padding(left=10, right=10, top=0, bottom=10),
                                 content=ft.Row(
                                     col=12,
                                     alignment=ft.MainAxisAlignment.END,

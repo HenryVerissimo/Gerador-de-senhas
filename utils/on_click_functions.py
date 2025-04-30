@@ -1,5 +1,6 @@
 import string
 from random import sample
+import pyperclip
 
 from flet import Page, ControlEvent
 from src.controllers.passwords_controller import PasswordsController
@@ -9,6 +10,7 @@ def go_to_view(e: ControlEvent, page: Page, view: object) -> None:
     page.clean()
     page.controls.append(view.build())
     page.update()
+
 
 def save_password(e:ControlEvent, page: Page, colors:dict, view:object) ->None:
     if view.box_text.value.strip() == "":
@@ -37,7 +39,8 @@ def save_password(e:ControlEvent, page: Page, colors:dict, view:object) ->None:
     view.text_info.visible = False
     page.update()
 
-def reload_password(e: ControlEvent, page: Page, characters:dict, view: object) -> None:
+
+def reload_password(e: ControlEvent, page: Page, colors: dict, characters:dict, view: object) -> None:
     password_char = ""
 
     if characters["numbers"]:
@@ -55,4 +58,24 @@ def reload_password(e: ControlEvent, page: Page, characters:dict, view: object) 
     password_char = list(password_char)
     password = sample(password_char, 10)
     view.box_text.value = "".join(password)
+    view.reload_icon.icon_color = colors["color3"]
+    page.update()
+
+    sleep(0.3)
+    view.reload_icon.icon_color = colors["color1"]
+    page.update()
+
+def copy_password(e: ControlEvent, page: Page, colors: dict, view: object) -> None:
+    password = str(view.box_text.value)
+    pyperclip.copy(password)
+
+    view.copy_icon.icon_color = colors["color3"]
+    view.text_info.value = "Copiado para área de transferência"
+    view.text_info.visible = True
+    page.update()
+
+    sleep(2)
+    view.copy_icon.icon_color = colors["color1"]
+    view.text_info.value = ""
+    view.text_info.visible = False
     page.update()
