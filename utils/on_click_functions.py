@@ -6,9 +6,10 @@ from flet import Page, ControlEvent
 from src.controllers.passwords_controller import PasswordsController
 from time import sleep
 
-def go_to_view(e: ControlEvent, page: Page, view: object) -> None:
+def go_to_view(e: ControlEvent, page: Page, view: object, app:object) -> None:
     page.clean()
     page.controls.append(view.build())
+    app._actual_view = view
     page.update()
 
 
@@ -43,6 +44,20 @@ def save_password(e:ControlEvent, page: Page, colors:dict, view:object) ->None:
 def reload_password(e: ControlEvent, page: Page, colors: dict, characters:dict, view: object) -> None:
     password_char = ""
 
+    if characters["numbers"] == characters["upper"] == characters["lower"] == characters["special"] == False:
+        view.text_info.value = "Você precisa selecionar pelo menos um tipo de caractere nas configurações!"
+        view.box_text.value = ""
+        view.reload_icon.icon_color = colors["color5"]
+        view.text_info.visible = True
+        page.update()
+
+        sleep(2)
+        view.reload_icon.icon_color = colors["color1"]
+        view.text_info.value = ""
+        view.text_info.visible = False
+        page.update()
+        return None
+
     if characters["numbers"]:
         password_char += string.digits
 
@@ -66,16 +81,39 @@ def reload_password(e: ControlEvent, page: Page, colors: dict, characters:dict, 
     page.update()
 
 def copy_password(e: ControlEvent, page: Page, colors: dict, view: object) -> None:
-    password = str(view.box_text.value)
-    pyperclip.copy(password)
 
-    view.copy_icon.icon_color = colors["color3"]
-    view.text_info.value = "Copiado para área de transferência"
-    view.text_info.visible = True
+    if view.box_text.value == "":
+        view.copy_icon.icon_color = colors["color5"]
+        view.text_info.value = "O campo está vazio! nada foi copiado..."
+        view.text_info.visible = True
+
+    else:
+        password = str(view.box_text.value)
+        pyperclip.copy(password)
+
+        view.copy_icon.icon_color = colors["color3"]
+        view.text_info.value = "Copiado para área de transferência"
+        view.text_info.visible = True
+
     page.update()
 
     sleep(2)
     view.copy_icon.icon_color = colors["color1"]
     view.text_info.value = ""
     view.text_info.visible = False
+    page.update()
+
+def config_password(e: ControlEvent, page: Page, view: object, app:object) -> None:
+    if e.control.label == "Números":
+        app._characters["numbers"] = view.numbers_switch.value
+
+    elif e.control.label == "Letras maíusculas":
+        app._characters["upper"] = view.upper_switch.value
+
+    elif e.control.label == "Letras minúsculas":
+        app._characters["lower"] = view.lower_switch.value
+    
+    elif e.control.label == "Caracteres especiais":
+        app._characters["special"] = view.special_switch.value
+
     page.update()

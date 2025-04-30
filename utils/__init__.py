@@ -1,1 +1,1 @@
-from .on_click_functions import go_to_view, save_password, reload_password, copy_password
+from .on_click_functions import go_to_view, save_password, reload_password, copy_password, config_password

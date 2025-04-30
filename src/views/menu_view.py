@@ -7,11 +7,11 @@ class MenuView:
         self._colors = colors
         self.home_bar = HomeBarView(self.__page, self._colors)
         self.text = ft.Text(value="CONFIGURAÇÔES DE SENHA", size=30, font_family="PassionOne-Bold")
-        self.numbers_check = ft.Checkbox(label="Números", value=True)
-        self.upper_check = ft.Checkbox(label="Letras maíusculas", value=True)
-        self.lower_check = ft.Checkbox(label="Letras minúsculas", value=False)
-        self.special_check = ft.Checkbox(label="Caracteres especiais", value=False)
-        self.edit_password = ft.Checkbox(label="Editar senha", value=False)
+        self.numbers_switch = ft.Switch(label="Números", value=True)
+        self.upper_switch = ft.Switch(label="Letras maíusculas", value=True)
+        self.lower_switch = ft.Switch(label="Letras minúsculas", value=False)
+        self.special_switch = ft.Switch(label="Caracteres especiais", value=False)
+        self.edit_password = ft.Switch(label="Editar senha", value=False)
         self.passwords_button = ft.Button(text="VER SENHAS SALVAS", icon=ft.Icons.SAVE)
 
     def build(self) -> None:
@@ -29,10 +29,10 @@ class MenuView:
                                 content=ft.Column(
                                     controls=[
                                         self.text,
-                                        self.numbers_check,
-                                        self.upper_check,
-                                        self.lower_check,
-                                        self.special_check,
+                                        self.numbers_switch,
+                                        self.upper_switch,
+                                        self.lower_switch,
+                                        self.special_switch,
                                         self.edit_password
                                     ]
                                 )
