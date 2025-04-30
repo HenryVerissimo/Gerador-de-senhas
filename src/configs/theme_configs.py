@@ -13,5 +13,6 @@ class DarkThemeConfigs:
             "color2": Colors.AMBER,
             "color3": Colors.BLUE,
             "color4": Colors.GREEN,
-            "color5": Colors.RED
+            "color5": Colors.RED,
+            "color6": Colors.GREY_800
         }

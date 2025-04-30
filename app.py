@@ -48,6 +48,7 @@ class MyApplication:
         self._dict_views["menu"].upper_switch.on_change=lambda e: config_password(e, self.__page, self._dict_views["menu"], self)
         self._dict_views["menu"].lower_switch.on_change=lambda e: config_password(e, self.__page, self._dict_views["menu"], self)
         self._dict_views["menu"].special_switch.on_change=lambda e: config_password(e, self.__page, self._dict_views["menu"], self)
+        self._dict_views["menu"].edit_password_switch.on_change=lambda e: config_password(e, self.__page, self._dict_views["menu"], self)
 
     def __set_dict_views(self) -> None:
         self._dict_views = {

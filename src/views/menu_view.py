@@ -11,7 +11,7 @@ class MenuView:
         self.upper_switch = ft.Switch(label="Letras maíusculas", value=True)
         self.lower_switch = ft.Switch(label="Letras minúsculas", value=False)
         self.special_switch = ft.Switch(label="Caracteres especiais", value=False)
-        self.edit_password = ft.Switch(label="Editar senha", value=False)
+        self.edit_password_switch = ft.Switch(label="Editar senha", value=False)
         self.passwords_button = ft.Button(text="VER SENHAS SALVAS", icon=ft.Icons.SAVE)
 
     def build(self) -> None:
@@ -33,7 +33,7 @@ class MenuView:
                                         self.upper_switch,
                                         self.lower_switch,
                                         self.special_switch,
-                                        self.edit_password
+                                        self.edit_password_switch
                                     ]
                                 )
                             ),

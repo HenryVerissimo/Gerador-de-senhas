@@ -116,4 +116,7 @@ def config_password(e: ControlEvent, page: Page, view: object, app:object) -> No
     elif e.control.label == "Caracteres especiais":
         app._characters["special"] = view.special_switch.value
 
+    elif e.control.label == "Editar senha":
+        app._dict_views["home"].box_text.disabled = not view.edit_password_switch.value
+
     page.update()
