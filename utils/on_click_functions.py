@@ -5,12 +5,7 @@ from flet import Page, ControlEvent
 from src.controllers.passwords_controller import PasswordsController
 from time import sleep
 
-def go_to_home(e: ControlEvent, page: Page, view: object) -> None:
-    page.clean()
-    page.controls.append(view.build())
-    page.update()
-
-def go_to_login(e: ControlEvent, page: Page, view: object) -> None:
+def go_to_view(e: ControlEvent, page: Page, view: object) -> None:
     page.clean()
     page.controls.append(view.build())
     page.update()

@@ -1,1 +1,1 @@
-from .on_click_functions import go_to_home, go_to_login, save_password, reload_password
+from .on_click_functions import go_to_view, save_password, reload_password
